@@ -4,7 +4,7 @@ import { Product } from "@/types/types";
 import axios from "axios";
 
 interface Props {
-  searchParams: { [key: string]: string };
+  searchParams: Promise<{ [key: string]: string }>;
 }
 
 export default async function Home({ searchParams }: Props) {
@@ -14,7 +14,6 @@ export default async function Home({ searchParams }: Props) {
     `${process.env.NEXT_PUBLIC_API_URL}/items`
   );
 
- 
   if (price === "asc") {
     products.sort((a, b) => Number(a.price) - Number(b.price));
   } else if (price === "desc") {
