@@ -26,14 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${urbanist.variable} antialiased bg-black`}>
-        <Suspense>
-          <ReduxProvider>
-            <Navbar />
-            <section className="max-w-[1440px] mx-auto font-urbanist pb-8 bg-black/90">
-              {children}
-            </section>
-          </ReduxProvider>
-        </Suspense>
+        <ReduxProvider>
+          <Navbar />
+          <section className="max-w-[1440px] mx-auto font-urbanist pb-8 bg-black/90">
+            {children}
+          </section>
+        </ReduxProvider>
+
         <ToastContainer
           position="top-right"
           autoClose={5000}
