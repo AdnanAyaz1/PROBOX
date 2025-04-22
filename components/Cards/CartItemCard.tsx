@@ -7,14 +7,12 @@ import {
   increaseQty,
   removeFromCart,
 } from "@/lib/redux/cartSlice";
-import { Product } from "@/types/types";
+import { CartItem } from "@/types/types";
 
 const CartItemCard = ({
   item,
 }: {
-  item: Product & {
-    quantity: number;
-  };
+  item: CartItem;
 }) => {
   const dispatch = useDispatch();
 
