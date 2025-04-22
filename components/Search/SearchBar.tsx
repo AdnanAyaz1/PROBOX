@@ -7,12 +7,11 @@ import React, { useEffect, useState } from "react";
 const SearchBar = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [query, setQuery] = useState(searchParams.get("search") || "");
+  const params = new URLSearchParams(searchParams.toString());
+  const [query, setQuery] = useState(params.get("search") || "");
 
   useEffect(() => {
-    
     const delayDebounce = setTimeout(() => {
-      const params = new URLSearchParams(searchParams.toString());
       if (query) {
         params.set("search", query);
       } else {
