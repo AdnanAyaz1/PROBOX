@@ -6,8 +6,9 @@ import React, { useState } from "react";
 const Filter = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
   const [priceFilter, setPriceFilter] = useState(
-    searchParams.get("price") || "Filter by Price"
+    params.get("price") || "Filter by Price"
   );
   const [showDropDown, setShowDropdown] = useState(false);
   return (
