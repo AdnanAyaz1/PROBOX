@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ReduxProvider } from "@/lib/redux/Provider";
+import { Suspense } from "react";
 
 const urbanist = Urbanist({
   weight: ["400", "500", "700"], // you can adjust these weights as needed
@@ -26,10 +27,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${urbanist.variable} antialiased bg-black`}>
         <ReduxProvider>
-          <Navbar />
-          <section className="max-w-[1440px] mx-auto font-urbanist pb-8 bg-black/90">
-            {children}
-          </section>
+          <Suspense>
+            <Navbar />
+            <section className="max-w-[1440px] mx-auto font-urbanist pb-8 bg-black/90">
+              {children}
+            </section>
+          </Suspense>
         </ReduxProvider>
         <ToastContainer
           position="top-right"
